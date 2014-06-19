@@ -1,0 +1,23 @@
+{
+  "name": "cloudcmd",
+  "version": "0.9.2",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "FLOP - FiLe Operations module",
+  "homepage": "http://github.com/coderaiser/flop",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/flop.git"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.0",
+    "pipe-io": "^0.9.1",
+    "rimraf": "^2.2.8",
+    "util-io": "^1.2.0"
+  },
+  "devDependencies": {},
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.4.x"
+  },
+  "main": "flop.js"
+}
