@@ -11,39 +11,22 @@
         dir         = require(DIR + 'dir'),
         commander   = require(DIR + 'commander'),
         time        = require(DIR + 'time'),
-        Hash        = require(DIR + 'hash'),
+        ncp         = require(DIR + 'ncp'),
+        
         pipe        = require('pipe-io'),
         Util        = require('util-io'),
         
-        ncp         = tryRequire('ncp'),
+        
         rimraf      = tryRequire('rimraf'),
         mkdir       = tryRequire('mkdirp') || fs.mkdir;
     
     exports.create  = function(path, type, callback) {
         Util.checkArgs(arguments, ['path', 'callback']);
         
-        if (!callback) {
-            callback    = type;
-            type        = 'file';
-        }
-        
-        if (!type)
-            type        = 'file';
-        
-        switch(type) {
-        case 'file':
-            fs.writeFile(path, '', callback);
-            break;
-        
-        case 'dir':
-            mkdir(path, callback);
-            break;
-        }
+        mkdir(path, callback);
     };
     
     exports.read    = function(path, type, callback) {
-        var hash, error;
-        
         Util.checkArgs(arguments, ['path', 'callback']);
         
         if (!callback)
@@ -53,7 +36,11 @@
         case 'size':
             dir.getSize(path, callback);
             break;
-            
+        
+        case 'size raw':
+            dir.getSize(path, 'raw', callback);
+            break;
+        
         case 'time':
             time.get(path, function(error, time) {
                 var timeStr;
@@ -65,115 +52,54 @@
             });
             break;
             
-        case 'hash':
-            hash = Hash.create();
-            
-            if (!hash) {
-                error   = 'hash: not suported, try update node';
-                callback(new Error(error));
-            } else
-                pipe.create(path, hash, function (error) {
-                    var hex;
-                    
-                    if (!error)
-                        hex = hash.get();
-                    
-                    callback(error, hex);
-                });
-            break;
-        
         default:
             commander.getDirContent(path, callback);
             break;
         }
     };
     
-    exports.write  = function(path, data, option, callback) {
-        var optionsPipe,
-            type = Util.getType(data);
-        
-        Util.checkArgs(arguments, ['path', 'data', 'callback']);
-        
-        if (!callback)
-            callback    = option;
-        
-        if (!type)
-            type        = '';
-        else if (type instanceof Buffer)
-            type = 'string';
-        
-        switch(type) {
-        case 'string':
-            fs.writeFile(path, data, callback);
-            break;
-        
-        case 'object':
-            optionsPipe = {
-                gunzip  : option === 'unzip',
-                gzip    : option === 'zip'
-            };
-            
-            pipe.create(data, path, optionsPipe, callback);
-            break;
-        }
-    };
-    
     exports.delete  = function(path, callback) {
+        Util.checkArgs(arguments, ['path', 'callback']);
+        
         if (rimraf)
             rimraf(path, callback);
         else
-            dir.isDir(path, function(error, isDir) {
-                if (error)
-                    callback(error);
-                else if (isDir)
+            fs.unlink(path, function(error) {
+                var isDir = error && error.code === 'EISDIR';
+                
+                if (isDir)
                     fs.rmdir(path, callback);
                 else
-                    fs.unlink(path, callback);
+                    callback(error);
             });
     };
     
-    exports.mv      = function(from, to, callback) {
-        dir.isDir(from, function(error, isDir) {
-            if (error)
-                callback(error);
-            else if (isDir && ncp && rimraf)
+    exports.move    = function(from, to, callback) {
+        Util.checkArgs(arguments, ['path', 'to', 'callback']);
+        
+        fs.rename(from, to, function(error) {
+            var isExDev = error && error.code === 'EXDEV';
+            
+            if (ncp && rimraf && isExDev)
                 ncp(from, to, function() {
                     rimraf(from, callback);
                 });
             else
-                fs.rename(from, to, callback);
-            });
+                callback(error);
+        });
     };
     
-    exports.cp      = function(from, to, type, callback) {
-        var options;
+    exports.copy    = function(from, to, callback) {
+        Util.checkArgs(arguments, ['from', 'to', 'callback']);
         
-        if (!callback) {
-            callback    = type;
-            type        = null;
-        }
-        
-        switch(type) {
-        default:
-            (ncp || pipe.create)(from, to, callback);
-            break;
-        
-        case 'zip':
-            options = {
-                gzip    : true
-            };
+        pipe.create(from, to, function(error) {
+            var isDir = error && error.code === 'EISDIR';
             
-            pipe.create(from, to, options, callback);
-            break;
-        
-        case 'unzip':
-            options = {
-                gunzip  : true
-            };
-            
-            pipe.create(from, to, options, callback);
-            break;
-        }
+            if (isDir)
+                ncp(from, to, callback);
+            else
+                callback(error);
+        });
     };
     
     function tryRequire(name) {
