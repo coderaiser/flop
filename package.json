@@ -1,6 +1,6 @@
 {
   "name": "flop",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "FLOP - FiLe Operations module",
   "homepage": "http://github.com/coderaiser/flop",
@@ -8,7 +8,11 @@
     "type": "git",
     "url": "git://github.com/coderaiser/flop.git"
   },
+  "bin": {
+    "flop": "./bin/flop"
+  },
   "dependencies": {
+    "minimist": "^0.2.0",
     "mkdirp": "^0.5.0",
     "pipe-io": "^0.9.1",
     "rimraf": "^2.2.8",

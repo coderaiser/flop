@@ -8,7 +8,7 @@
     var fs          = require('fs'),
         DIR         = './lib/',
         
-        dir         = require(DIR + 'dir'),
+        dir         = require(DIR + 'size'),
         commander   = require(DIR + 'commander'),
         time        = require(DIR + 'time'),
         ncp         = require(DIR + 'ncp'),
@@ -34,24 +34,21 @@
         
         switch (type) {
         case 'size':
-            dir.getSize(path, callback);
+            size.get(path, callback);
             break;
         
         case 'size raw':
-            dir.getSize(path, 'raw', callback);
+            size.get(path, 'raw', callback);
             break;
         
         case 'time':
-            time.get(path, function(error, time) {
-                var timeStr;
-                
-                if (!error)
-                    timeStr = time.toString();
-                
-                callback(error, timeStr);
-            });
+            time.get(path, callback);
             break;
             
+        case 'time raw':
+            time.get(path, 'raw', callback);
+            break;
+        
         default:
             commander.getDirContent(path, callback);
             break;
