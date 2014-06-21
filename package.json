@@ -2,7 +2,7 @@
   "name": "flop",
   "version": "1.0.2",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
-  "description": "FLOP - FiLe Operations module",
+  "description": "FLOP - simple FoLder OPerations",
   "homepage": "http://github.com/coderaiser/flop",
   "repository": {
     "type": "git",
