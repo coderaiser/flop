@@ -1,5 +1,5 @@
 /*
- * FLOP - FiLe OPerations
+ * FLOP - simple FoLder OPerations
  */
 
 (function() {
