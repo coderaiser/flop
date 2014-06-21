@@ -6,8 +6,8 @@ FLOP - Folder operations module.
 For use as application you could use global install.
 
 ```
-    npm i flop -g
-````
+npm i flop -g
+```
 
 If you run `flop -h` you will see:
 
@@ -37,23 +37,23 @@ Posible options:
 - size raw
 
 ```js
-    var flop = reauire('flop');
-    
-    flop.read('.', function(error, data) {
-        console.log(error, data);
-    });
-    
-    flop.read('.', 'time', function(error, data) {
-        console.log(error, data);
-    });
-    
-    flop.read('.', 'size', function(error, data) {
-        console.log(error, data);
-    });
-    
-    flop.read('.', 'size raw', function(error, data) {
-        console.log(error, data);
-    });
+var flop = reauire('flop');
+
+flop.read('.', function(error, data) {
+    console.log(error, data);
+});
+
+flop.read('.', 'time', function(error, data) {
+    console.log(error, data);
+});
+
+flop.read('.', 'size', function(error, data) {
+    console.log(error, data);
+});
+
+flop.read('.', 'size raw', function(error, data) {
+    console.log(error, data);
+});
 ```
 ## copy
 ## move
