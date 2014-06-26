@@ -1,6 +1,6 @@
 {
   "name": "flop",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "FLOP - simple FoLder OPerations",
   "homepage": "http://github.com/coderaiser/flop",
@@ -12,6 +12,7 @@
     "flop": "./bin/flop"
   },
   "dependencies": {
+    "format-io": "^0.9.2",
     "minimist": "^0.2.0",
     "mkdirp": "^0.5.0",
     "pipe-io": "^0.9.1",
