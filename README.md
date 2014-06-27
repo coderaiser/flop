@@ -50,7 +50,7 @@ Posible options:
 - size raw
 
 ```js
-var flop = reauire('flop');
+var flop = require('flop');
 
 flop.read('.', function(error, data) {
     console.log(error, data);
@@ -71,7 +71,7 @@ flop.read('.', 'size raw', function(error, data) {
 ### copy
 
 ```js
-var flop = reauire('flop');
+var flop = require('flop');
 
 flop.copy('from', 'to', function(error) {
     console.log(error);
