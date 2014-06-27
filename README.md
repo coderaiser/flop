@@ -81,7 +81,7 @@ flop.copy('from', 'to', function(error) {
 ### move
 
 ```js
-var flop = reauire('flop');
+var flop = require('flop');
 
 flop.move('from', 'to', function(error) {
     console.log(error);
