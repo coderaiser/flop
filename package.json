@@ -1,6 +1,6 @@
 {
   "name": "flop",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "FLOP - simple FoLder OPerations",
   "homepage": "http://github.com/coderaiser/flop",
@@ -18,7 +18,7 @@
     "pipe-io": "^0.9.1",
     "rimraf": "^2.2.8",
     "trammel": "^0.9.5",
-    "util-io": "^1.2.0"
+    "util-io": "^1.2.1"
   },
   "devDependencies": {},
   "license": "MIT",
