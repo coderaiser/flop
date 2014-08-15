@@ -10,12 +10,12 @@
         
         
         commander   = require(DIR + 'commander'),
-        time        = require(DIR + 'time'),
         ncp         = require(DIR + 'ncp'),
         
         size        = require('trammel'),
         pipe        = require('pipe-io'),
         Util        = require('util-io'),
+        time        = require('timem'),
         
         
         rimraf      = tryRequire('rimraf'),
