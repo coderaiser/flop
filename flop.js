@@ -9,14 +9,13 @@
         DIR         = './lib/',
         
         
-        commander   = require(DIR + 'commander'),
-        ncp         = require(DIR + 'ncp'),
-        
+        readify     = require('readify'),
         size        = require('trammel'),
         pipe        = require('pipe-io'),
         Util        = require('util-io'),
         time        = require('timem'),
         
+        ncp         = require(DIR + 'ncp'),
         
         rimraf      = tryRequire('rimraf'),
         mkdir       = tryRequire('mkdirp') || fs.mkdir;
@@ -51,7 +50,7 @@
             break;
         
         default:
-            commander.getDirContent(path, callback);
+            readify(path, callback);
             break;
         }
     };
