@@ -9,7 +9,7 @@
     "url": "git://github.com/coderaiser/flop.git"
   },
   "bin": {
-    "flop": "./bin/flop"
+    "flop": "./bin/flop.js"
   },
   "dependencies": {
     "minimist": "~0.2.0",
@@ -26,5 +26,5 @@
   "engines": {
     "node": ">=0.4.x"
   },
-  "main": "flop.js"
+  "main": "lib/flop.js"
 }
