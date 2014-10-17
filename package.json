@@ -14,7 +14,7 @@
   "dependencies": {
     "minimist": "~0.2.0",
     "mkdirp": "~0.5.0",
-    "ncp": "~0.6.0",
+    "ncp": "~1.0.1",
     "pipe-io": "~0.9.4",
     "readify": "~1.0.0",
     "rimraf": "~2.2.8",
