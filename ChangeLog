@@ -1,0 +1,9 @@
+2014.10.30, v1.0.19
+
+fix:
+- (package) version
+feature:
+- (package) minimist v1.1.0
+- (package) util-io v1.5.0
+- (package) readify v1.1.0
+- (package) v{{ version }}
