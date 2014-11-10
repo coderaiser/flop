@@ -1,3 +1,9 @@
+2014.11.10, v1.0.22
+
+feature:
+- (flop) rm tryRequire
+
+
 2014.11.10, v1.0.21
 
 feature:
