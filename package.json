@@ -19,7 +19,7 @@
     "readify": "~1.1.0",
     "rimraf": "~2.2.8",
     "timem": "~1.0.1",
-    "trammel": "~0.9.5",
+    "trammel": "~1.0.0",
     "util-io": "~1.6.1"
   },
   "license": "MIT",
