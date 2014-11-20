@@ -14,7 +14,6 @@
   "dependencies": {
     "minimist": "~1.1.0",
     "mkdirp": "~0.5.0",
-    "ncp": "~1.0.1",
     "files-io": "~1.2.0",
     "readify": "~1.1.0",
     "rimraf": "~2.2.8",
