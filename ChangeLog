@@ -1,3 +1,9 @@
+2015.04.24, v1.0.32
+
+fix:
+- (flop) move: error when directory on distanation path has same name and not empty
+
+
 2015.03.27, v1.0.31
 
 fix:
