@@ -1,3 +1,9 @@
+2015.06.24, v1.2.1
+
+fix:
+- (flop) crash when no callback
+
+
 2015.06.24, v1.2.0
 
 feature:
