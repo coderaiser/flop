@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=0.4"
+    "node": ">=0.10"
   },
   "main": "lib/flop.js"
 }
