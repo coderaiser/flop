@@ -94,6 +94,10 @@ flop.move('from', 'to', function(error) {
 flop.delete('path/to/delete', function(error) {
     console.log(error);
 });
+
+flop.delete('path/to/delete', ['folder1', 'folder2'], function(error) {
+    console.log(error);
+});
 ```
 
 ## License
