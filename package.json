@@ -19,7 +19,8 @@
     "readify": "~1.2.0",
     "remy": "~1.0.0",
     "timem": "~1.1.0",
-    "trammel": "~1.0.0"
+    "trammel": "~1.0.0",
+    "win32": "~0.9.10"
   },
   "license": "MIT",
   "engines": {
