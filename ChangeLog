@@ -1,3 +1,10 @@
+2016.10.19, v1.4.2
+
+feature:
+- (package) readify v3.0.0
+- (flop) rm IIFE
+
+
 2016.02.21, v1.4.1
 
 feature:
