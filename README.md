@@ -45,6 +45,7 @@ Parameters:
 - callback
 
 Posible options:
+- raw
 - time
 - size
 - size raw
@@ -55,6 +56,11 @@ var flop = require('flop');
 flop.read('.', function(error, data) {
     console.log(error, data);
 });
+
+flop.read('.', 'raw', function(error, data) {
+    console.log(error, data);
+});
+
 
 flop.read('.', 'time', function(error, data) {
     console.log(error, data);
