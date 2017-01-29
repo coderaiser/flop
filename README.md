@@ -41,10 +41,11 @@ Read content of directory with permisions and sizes.
 
 Parameters:
 - path
+- type (optional)
 - options (optional)
 - callback
 
-Posible options:
+Posible type:
 - raw
 - time
 - size
@@ -54,6 +55,10 @@ Posible options:
 var flop = require('flop');
 
 flop.read('.', function(error, data) {
+    console.log(error, data);
+});
+
+flop.read('.', {sort: 'size'}, function(error, data) {
     console.log(error, data);
 });
 
