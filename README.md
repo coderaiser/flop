@@ -29,9 +29,9 @@ npm i flop
 Create new directory.
 
 ```js
-var flop = require('flop');
+const flop = require('flop');
 
-flop.create('./hello/world/from/flop', function(error, data) {
+flop.create('./hello/world/from/flop', (error, data) => {
     console.log(error, data);
 });
 ```
@@ -52,39 +52,40 @@ Posible type:
 - size raw
 
 ```js
-var flop = require('flop');
+const flop = require('flop');
 
-flop.read('.', function(error, data) {
+flop.read('.', (error, data) => {
     console.log(error, data);
 });
 
-flop.read('.', {sort: 'size'}, function(error, data) {
+flop.read('.', {sort: 'size'}, (error, data) => {
     console.log(error, data);
 });
 
-flop.read('.', 'raw', function(error, data) {
+flop.read('.', 'raw', (error, data) => {
     console.log(error, data);
 });
 
 
-flop.read('.', 'time', function(error, data) {
+flop.read('.', 'time', (error, data) => {
     console.log(error, data);
 });
 
-flop.read('.', 'size', function(error, data) {
+flop.read('.', 'size', (error, data) => {
     console.log(error, data);
 });
 
-flop.read('.', 'size raw', function(error, data) {
+flop.read('.', 'size raw', (error, data) => {
     console.log(error, data);
 });
 ```
+
 ### copy
 
 ```js
-var flop = require('flop');
+const flop = require('flop');
 
-flop.copy('from', 'to', function(error) {
+flop.copy('from', 'to', (error) => {
     console.log(error);
 });
 ```
@@ -92,9 +93,9 @@ flop.copy('from', 'to', function(error) {
 ### move
 
 ```js
-var flop = require('flop');
+const flop = require('flop');
 
-flop.move('from', 'to', function(error) {
+flop.move('from', 'to', (error) => {
     console.log(error);
 });
 ```
@@ -102,15 +103,24 @@ flop.move('from', 'to', function(error) {
 ### delete
 
 ```js
-flop.delete('path/to/delete', function(error) {
+flop.delete('path/to/delete', (error) => {
     console.log(error);
 });
 
-flop.delete('path/to/delete', ['folder1', 'folder2'], function(error) {
+flop.delete('path/to/delete', ['folder1', 'folder2'], (error) => {
     console.log(error);
 });
+```
+
+## Environments
+
+In old `node.js` environments that supports `es5` only, `flop` could be used with:
+
+```js
+var flop = require('flop/legacy');
 ```
 
 ## License
 
 MIT
+

@@ -2,12 +2,12 @@
 
 'use strict';
 
-var minimist = require('minimist');
-var flop = require('..');
-var argv = minimist(process.argv.slice(2));
+const minimist = require('minimist');
+const flop = require('..');
+const argv = minimist(process.argv.slice(2));
 
-var path;
-var keys = Object.keys(argv);
+let path;
+const keys = Object.keys(argv);
 
 if (keys.length === 1)
     if (argv._.length)
@@ -15,8 +15,8 @@ if (keys.length === 1)
     else
         help();
 else
-    keys.some(function(name) {
-        var isDone = true;
+    keys.some((name) => {
+        let isDone = true;
         
         if (name === 'h' || name === '')
             name = 'help';
@@ -46,17 +46,16 @@ else
         return isDone;
     });
 
-if (path) {
-    flop.read(path, function(error, data) {
+if (path)
+    flop.read(path, (error, data) => {
         if (error)
-            console.log(error);
-        else
-            console.log(data);
+            return console.log(error);
+        
+        console.log(data);
     });
-}
 
 function help() {
-    var message =   'flop - folder operations module.\n'        +
+    const message = 'flop - folder operations module.\n'        +
                     'options: \n'                               +
                     '-h, --help - show this message\n'          +
                     '-r, --read - get directory content\n';
@@ -65,7 +64,7 @@ function help() {
 }
 
 function unknown() {
-    var message =   'Unknown parameter. For help use: flop -h';
+    const message = 'Unknown parameter. For help use: flop -h';
     
     console.log(message);
 }
