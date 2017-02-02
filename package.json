@@ -23,7 +23,9 @@
     "6to5:bin": "babel bin -d legacy/bin",
     "build": "redrun 6to5:* legacy:*",
     "wisdom": "npm run build",
-    "lint": "eslint lib test",
+    "lint": "redrun lint:*",
+    "lint:eslint": "eslint lib test",
+    "lint:eslint:bin": "eslint --rule 'no-console:0' bin",
     "legacy:index": "echo \"module.exports = require('./lib/flop');\" > legacy/index.js"
   },
   "dependencies": {
