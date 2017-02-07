@@ -4,11 +4,21 @@ const path = require('path');
 
 const test = require('tape');
 const mkdirp = require('mkdirp');
+const sinon = require('sinon');
+
 const flop = require('..');
 
 const fixture = path.join(__dirname, 'fixture');
 const empty = path.join(fixture, 'empty');
 mkdirp.sync(empty);
+
+const stub = (name, fn) => {
+    require.cache[require.resolve(name)].exports = fn;
+};
+
+const clean = (name) => {
+    delete require.cache[require.resolve(name)];
+};
 
 test('flop: read: size', (t) => {
     flop.read(empty, 'size', (e, size) => {
@@ -61,13 +71,27 @@ test('flop: read', (t) => {
 });
 
 test('flop: read: options', (t) => {
-    flop.read(empty, (e, result) => {
-        const expect = {
-            path: empty + path.sep,
-            files: []
-        };
-        t.deepEqual(result, expect, 'should return result');
-        t.end();
-    });
+    const readify = sinon.stub();
+    
+    clean('..');
+    stub('readify/legacy', readify);
+    const flop = require('..');
+    
+    const callback = sinon.stub();
+    const options = {
+        order: 'asc',
+        sort: 'name',
+    };
+    
+    flop.read(empty, options, callback);
+    
+    const expect = [
+        empty,
+        options,
+        callback,
+    ];
+    
+    t.deepEqual(readify.args.pop(), expect, 'should call with args');
+    t.end();
 });
 
