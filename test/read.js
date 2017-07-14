@@ -74,7 +74,7 @@ test('flop: read: options', (t) => {
     const readify = sinon.stub();
     
     clean('..');
-    stub('readify/legacy', readify);
+    stub('readify', readify);
     const flop = require('..');
     
     const callback = sinon.stub();
