@@ -112,14 +112,6 @@ flop.delete('path/to/delete', ['folder1', 'folder2'], (error) => {
 });
 ```
 
-## Environments
-
-In old `node.js` environments that supports `es5` only, `flop` could be used with:
-
-```js
-var flop = require('flop/legacy');
-```
-
 ## License
 
 MIT
