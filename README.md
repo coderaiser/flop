@@ -100,14 +100,14 @@ flop.move('from', 'to', (error) => {
 });
 ```
 
-### delete
+### remove
 
 ```js
-flop.delete('path/to/delete', (error) => {
+flop.remove('path/to/remove', (error) => {
     console.log(error);
 });
 
-flop.delete('path/to/delete', ['folder1', 'folder2'], (error) => {
+flop.remove('path/to/remove', ['folder1', 'folder2'], (error) => {
     console.log(error);
 });
 ```
