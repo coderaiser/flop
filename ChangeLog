@@ -1,3 +1,13 @@
+2018.02.19, v4.0.0
+
+feature:
+- (package) add keywords
+- (flop) delete -> remove
+- (package) sinon v4.0.0
+- (package) coveralls v3.0.0
+- (package) sinon v3.0.0
+
+
 2017.07.14, v3.0.1
 
 fix:
