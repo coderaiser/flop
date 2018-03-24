@@ -1,3 +1,12 @@
+2018.03.24, v4.0.1
+
+fix:
+- (flop) delete -> remove
+
+feature:
+- (package) redrun v6.0.0
+
+
 2018.02.19, v4.0.0
 
 feature:
