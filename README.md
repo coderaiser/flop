@@ -118,10 +118,10 @@ MIT
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/flop.svg?style=flat
 [BuildStatusIMGURL]:        https://img.shields.io/travis/coderaiser/flop/master.svg?style=flat
-[DependencyStatusIMGURL]:   https://img.shields.io/gemnasium/coderaiser/flop.svg?style=flat
+[DependencyStatusIMGURL]:   https://img.shields.io/david/coderaiser/flop.svg?style=flat
 [LicenseIMGURL]:            https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
 [NPMURL]:                   https://npmjs.org/package/flop "npm"
 [BuildStatusURL]:           https://travis-ci.org/coderaiser/flop  "Build Status"
-[DependencyStatusURL]:      https://gemnasium.com/coderaiser/flop "Dependency Status"
+[DependencyStatusURL]:      https://david-dm.org/coderaiser/flop "Dependency Status"
 [LicenseURL]:               https://tldrlegal.com/license/mit-license "MIT License"
 
