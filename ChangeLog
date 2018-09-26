@@ -1,3 +1,13 @@
+2018.09.26, v5.0.0
+
+feature:
+- (package) drop support of node < 8
+- (package) copymitter v4.0.2
+- (package) nyc v13.0.1
+- (package) eslint v5.0.0
+- (package) nyc v12.0.2
+
+
 2018.06.12, v4.0.7
 
 feature:
