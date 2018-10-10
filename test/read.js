@@ -71,7 +71,8 @@ test('flop: read', (t) => {
 });
 
 test('flop: read: options', (t) => {
-    const readify = sinon.stub();
+    const readify = sinon.stub()
+        .returns(Promise.resolve());
     
     clean('..');
     stub('readify', readify);
@@ -88,7 +89,6 @@ test('flop: read: options', (t) => {
     const expect = [
         empty,
         options,
-        callback,
     ];
     
     t.deepEqual(readify.args.pop(), expect, 'should call with args');
