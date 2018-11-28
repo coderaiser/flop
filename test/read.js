@@ -4,21 +4,15 @@ const path = require('path');
 
 const test = require('tape');
 const mkdirp = require('mkdirp');
-const sinon = require('sinon');
+const stub = require('@cloudcmd/stub');
+const mockRequire = require('mock-require');
+const {reRequire} = mockRequire;
 
 const flop = require('..');
 
 const fixture = path.join(__dirname, 'fixture');
 const empty = path.join(fixture, 'empty');
 mkdirp.sync(empty);
-
-const stub = (name, fn) => {
-    require.cache[require.resolve(name)].exports = fn;
-};
-
-const clean = (name) => {
-    delete require.cache[require.resolve(name)];
-};
 
 test('flop: read: size', (t) => {
     flop.read(empty, 'size', (e, size) => {
@@ -71,14 +65,13 @@ test('flop: read', (t) => {
 });
 
 test('flop: read: options', (t) => {
-    const readify = sinon.stub()
+    const readify = stub()
         .returns(Promise.resolve());
     
-    clean('..');
-    stub('readify', readify);
-    const flop = require('..');
+    mockRequire('readify', readify);
+    const flop = reRequire('..');
     
-    const callback = sinon.stub();
+    const callback = stub();
     const options = {
         order: 'asc',
         sort: 'name',
