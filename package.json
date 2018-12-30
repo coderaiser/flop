@@ -58,5 +58,8 @@
     "nyc": "^13.0.1",
     "redrun": "^7.0.0",
     "tape": "^4.6.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
