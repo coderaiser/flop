@@ -52,14 +52,13 @@
     "@cloudcmd/stub": "^2.2.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.1.0",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-putout": "^1.10.0",
-    "madrun": "^2.5.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-putout": "^2.0.0",
+    "madrun": "^3.0.5",
     "mock-require": "^3.0.2",
     "nodemon": "^1.11.0",
     "nyc": "^14.1.1",
-    "putout": "^5.5.0",
-    "redrun": "^7.0.0"
+    "putout": "^6.1.0"
   },
   "publishConfig": {
     "access": "public"
