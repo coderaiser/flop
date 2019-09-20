@@ -2,7 +2,7 @@
 
 const path = require('path');
 
-const test = require('tape');
+const test = require('supertape');
 const mkdirp = require('mkdirp');
 const stub = require('@cloudcmd/stub');
 const mockRequire = require('mock-require');
@@ -46,7 +46,7 @@ test('flop: read: raw', (t) => {
     flop.read(empty, 'raw', (e, result) => {
         const expect = {
             path: empty + path.sep,
-            files: []
+            files: [],
         };
         t.deepEqual(result, expect, 'should return result');
         t.end();
@@ -57,7 +57,7 @@ test('flop: read', (t) => {
     flop.read(empty, (e, result) => {
         const expect = {
             path: empty + path.sep,
-            files: []
+            files: [],
         };
         t.deepEqual(result, expect, 'should return result');
         t.end();
