@@ -42,7 +42,7 @@
     "supertape": "^1.2.3",
     "timem": "^1.1.0",
     "trammel": "^3.0.1",
-    "win32": "^3.0.0"
+    "win32": "^4.0.0"
   },
   "license": "MIT",
   "engines": {
