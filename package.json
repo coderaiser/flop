@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3"
+    "node": ">=10"
   },
   "devDependencies": {
     "@cloudcmd/stub": "^2.2.0",
