@@ -1,3 +1,10 @@
+2019.09.21, v7.0.0
+
+feature:
+- (flop) drop support of node < 10
+- (package) win32 v4.0.0
+
+
 2019.09.20, v6.0.3
 
 feature:
