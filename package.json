@@ -38,7 +38,7 @@
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.0",
     "readify": "^7.0.0",
-    "remy": "^4.0.0",
+    "remy": "^5.0.0",
     "supertape": "^1.2.3",
     "timem": "^1.1.0",
     "trammel": "^3.0.1",
