@@ -1,3 +1,9 @@
+2020.03.01, v8.0.0
+
+feature:
+- (flop) callback -> promise
+
+
 2020.03.01, v7.0.4
 
 feature:
