@@ -40,7 +40,7 @@
     "readify": "^7.0.0",
     "remy": "^5.0.0",
     "supertape": "^1.2.3",
-    "timem": "^1.1.0",
+    "timem": "^2.0.0",
     "trammel": "^3.0.1",
     "win32": "^4.0.0"
   },
@@ -52,7 +52,7 @@
     "@cloudcmd/stub": "^2.2.0",
     "coveralls": "^3.0.0",
     "eslint": "^6.1.0",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-putout": "^2.0.0",
     "madrun": "^3.0.5",
     "mock-require": "^3.0.2",
