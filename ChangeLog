@@ -1,3 +1,16 @@
+2020.03.01, v7.0.4
+
+feature:
+- (package) madrun v5.4.4
+- (package) nodemon v2.0.2
+- (package) nyc v15.0.0
+- (package) putout v7.16.0
+- (package) mkdirp v1.0.3
+- (package) madrun v5.4.4
+- (package) eslint-plugin-putout v3.2.1
+- (package) eslint-plugin-node v11.0.0
+
+
 2019.10.16, v7.0.3
 
 feature:
