@@ -42,6 +42,7 @@
     "supertape": "^1.2.3",
     "timem": "^2.0.0",
     "trammel": "^3.0.1",
+    "try-to-catch": "^3.0.0",
     "win32": "^4.0.0"
   },
   "license": "MIT",

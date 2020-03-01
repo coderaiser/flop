@@ -43,7 +43,6 @@ Parameters:
 - path
 - type (optional)
 - options (optional)
-- callback
 
 Posible type:
 - raw
@@ -54,30 +53,12 @@ Posible type:
 ```js
 const flop = require('flop');
 
-flop.read('.', (error, data) => {
-    console.log(error, data);
-});
-
-flop.read('.', {sort: 'size'}, (error, data) => {
-    console.log(error, data);
-});
-
-flop.read('.', 'raw', (error, data) => {
-    console.log(error, data);
-});
-
-
-flop.read('.', 'time', (error, data) => {
-    console.log(error, data);
-});
-
-flop.read('.', 'size', (error, data) => {
-    console.log(error, data);
-});
-
-flop.read('.', 'size raw', (error, data) => {
-    console.log(error, data);
-});
+await flop.read('.');
+await flop.read('.', {sort: 'size'});
+await flop.read('.', 'raw');
+await flop.read('.', 'time');
+await flop.read('.', 'size');
+await flop.read('.', 'size raw');
 ```
 
 ### copy
@@ -85,9 +66,7 @@ flop.read('.', 'size raw', (error, data) => {
 ```js
 const flop = require('flop');
 
-flop.copy('from', 'to', (error) => {
-    console.log(error);
-});
+await flop.copy('from', 'to');
 ```
 
 ### move
@@ -95,21 +74,14 @@ flop.copy('from', 'to', (error) => {
 ```js
 const flop = require('flop');
 
-flop.move('from', 'to', (error) => {
-    console.log(error);
-});
+await flop.move('from', 'to');
 ```
 
 ### remove
 
 ```js
-flop.remove('path/to/remove', (error) => {
-    console.log(error);
-});
-
-flop.remove('path/to/remove', ['folder1', 'folder2'], (error) => {
-    console.log(error);
-});
+await flop.remove('path/to/remove');
+await flop.remove('path/to/remove', ['folder1', 'folder2']);
 ```
 
 ## License
