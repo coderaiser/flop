@@ -1,3 +1,9 @@
+2020.04.25, v8.0.3
+
+fix:
+- (package) supertape: dependency -> devDependency
+
+
 2020.03.02, v8.0.2
 
 fix:
