@@ -1,17 +1,22 @@
 'use strict';
 
+const {EventEmitter} = require('events');
 const path = require('path');
 
+const wait = require('@iocmd/wait');
 const test = require('supertape');
 const mkdirp = require('mkdirp');
 const stub = require('@cloudcmd/stub');
+const tryToCatch = require('try-to-catch');
 const mockRequire = require('mock-require');
-const {reRequire} = mockRequire;
 
 const flop = require('..');
 
+const {reRequire, stopAll} = mockRequire;
+
 const fixture = path.join(__dirname, 'fixture');
 const empty = path.join(fixture, 'empty');
+
 mkdirp.sync(empty);
 
 test('flop: read: size', async (t) => {
@@ -83,6 +88,64 @@ test('flop: read: options', async (t) => {
     ];
     
     t.deepEqual(readify.args.pop(), expect, 'should call with args');
+    t.end();
+});
+
+test('flop: remove: called: end', async (t) => {
+    const emitter = new EventEmitter();
+    const remy = stub().returns(emitter);
+    
+    const path = '/';
+    const files = [];
+    
+    mockRequire('remy', remy);
+    const {remove} = reRequire('..');
+    
+    const emit = emitter.emit.bind(emitter);
+        
+    await Promise.all([
+        remove(path, files),
+        wait(emit, 'end'),
+    ]);
+    
+    stopAll();
+    
+    t.ok(remy.calledWith(path, files), 'should call remy');
+    t.end();
+});
+
+test('flop: remove: called: error', async (t) => {
+    const emitter = new EventEmitter();
+    const remy = stub().returns(emitter);
+    
+    const path = '/';
+    const files = [];
+    
+    mockRequire('remy', remy);
+    const {remove} = reRequire('..');
+    
+    const emit = emitter.emit.bind(emitter);
+    const all = Promise.all.bind(Promise);
+    
+    const [e] = await tryToCatch(all, [
+        wait(0, emit, 'error', Error('hello')),
+        remove(path, files),
+    ]);
+    
+    stopAll();
+    
+    t.equal(e.message, 'hello');
+    t.end();
+});
+
+test('flop: remove: called', async (t) => {
+    const path = '/';
+    const files = ['not-found'];
+    
+    const {remove} = reRequire('..');
+    const [error] = await tryToCatch(remove, path, files);
+    
+    t.equal(error.code, 'ENOENT');
     t.end();
 });
 
