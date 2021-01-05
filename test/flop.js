@@ -2,10 +2,10 @@
 
 const {EventEmitter} = require('events');
 const path = require('path');
+const {mkdirSync} = require('fs');
 
 const wait = require('@iocmd/wait');
 const test = require('supertape');
-const mkdirp = require('mkdirp');
 const stub = require('@cloudcmd/stub');
 const tryToCatch = require('try-to-catch');
 const mockRequire = require('mock-require');
@@ -17,7 +17,9 @@ const {reRequire, stopAll} = mockRequire;
 const fixture = path.join(__dirname, 'fixture');
 const empty = path.join(fixture, 'empty');
 
-mkdirp.sync(empty);
+mkdirSync(empty, {
+    recursive: true
+});
 
 test('flop: read: size', async (t) => {
     const size = await flop.read(empty, 'size');
