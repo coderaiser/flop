@@ -1,3 +1,15 @@
+2021.01.05, v9.0.0
+
+feature:
+- (package) supertape v4.4.0
+- (package) putout v13.1.2
+- (package) madrun v8.3.8
+- (package) eslint-plugin-putout v6.11.1
+- (package) eslint v7.17.0
+- (package) @cloudcmd/stub v3.3.0
+- (flop) drop support of node < 14
+
+
 2020.04.26, v8.1.0
 
 feature:
