@@ -1,3 +1,9 @@
+2021.01.05, v9.0.1
+
+feature:
+- (flop) rm mkdirp, use fs.mkdir instead
+
+
 2021.01.05, v9.0.0
 
 feature:
