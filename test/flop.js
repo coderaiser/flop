@@ -102,7 +102,7 @@ test('flop: remove: called: end', async (t) => {
     const {remove} = reRequire('..');
     
     const emit = emitter.emit.bind(emitter);
-        
+    
     await Promise.all([
         remove(path, files),
         wait(emit, 'end'),
@@ -110,7 +110,7 @@ test('flop: remove: called: end', async (t) => {
     
     stopAll();
     
-    t.ok(remy.calledWith(path, files), 'should call remy');
+    t.calledWith(remy, [path, files], 'should call remy');
     t.end();
 });
 

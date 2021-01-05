@@ -1,5 +1,7 @@
+*.swp
 package-lock.json
 node_modules
 npm-debug.log
 .nyc_output
 
+.putoutcache
