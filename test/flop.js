@@ -18,7 +18,7 @@ const fixture = path.join(__dirname, 'fixture');
 const empty = path.join(fixture, 'empty');
 
 mkdirSync(empty, {
-    recursive: true
+    recursive: true,
 });
 
 test('flop: read: size', async (t) => {
