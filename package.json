@@ -43,7 +43,7 @@
     "timem": "^2.0.0",
     "trammel": "^5.0.0",
     "try-to-catch": "^3.0.0",
-    "win32": "^4.0.0"
+    "win32": "^5.0.0"
   },
   "license": "MIT",
   "engines": {
