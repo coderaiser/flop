@@ -1,3 +1,9 @@
+2021.01.20, v9.1.0
+
+feature:
+- (package) win32 v5.0.0: move out win32 detection into win32
+
+
 2021.01.19, v9.0.2
 
 feature:
