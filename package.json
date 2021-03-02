@@ -53,6 +53,7 @@
     "@cloudcmd/stub": "^3.3.0",
     "@iocmd/hold-up": "^1.1.2",
     "@iocmd/wait": "^1.0.0",
+    "c8": "^7.6.0",
     "coveralls": "^3.0.0",
     "eslint": "^7.17.0",
     "eslint-plugin-node": "^11.0.0",
@@ -60,7 +61,6 @@
     "madrun": "^8.3.8",
     "mock-require": "^3.0.2",
     "nodemon": "^2.0.2",
-    "nyc": "^15.0.0",
     "putout": "^15.4.3",
     "supertape": "^5.0.0"
   },

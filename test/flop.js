@@ -35,46 +35,27 @@ test('flop: read: size raw', async (t) => {
     t.end();
 });
 
-test('flop: read: time', async (t) => {
-    const time = await flop.read(empty, 'time');
-    
-    t.ok(time instanceof Date, 'should retun date');
-    t.end();
-});
-
-test('flop: read: time raw', async (t) => {
-    const time = await flop.read(empty, 'time raw');
-    t.notOk(Number.isNaN(time), 'should retun number');
-    t.end();
-});
-
 test('flop: read: raw', async (t) => {
     const result = await flop.read(empty, 'raw');
-    const expect = {
-        path: empty + path.sep,
-        files: [],
-    };
+    const expected = empty;
     
-    t.deepEqual(result, expect, 'should return result');
+    t.equal(result.path, expected, 'should return result');
     t.end();
 });
 
 test('flop: read', async (t) => {
     const result = await flop.read(empty);
-    const expect = {
-        path: empty + path.sep,
-        files: [],
-    };
     
-    t.deepEqual(result, expect, 'should return result');
+    t.equal(result.path, empty, 'should return result');
     t.end();
 });
 
 test('flop: read: options', async (t) => {
-    const readify = stub()
-        .returns(Promise.resolve());
+    const read = stub().resolves();
     
-    mockRequire('readify', readify);
+    mockRequire('win32', {
+        read,
+    });
     const flop = reRequire('..');
     
     const options = {
@@ -89,7 +70,7 @@ test('flop: read: options', async (t) => {
         options,
     ];
     
-    t.deepEqual(readify.args.pop(), expect, 'should call with args');
+    t.deepEqual(read.args.pop(), expect, 'should call with args');
     t.end();
 });
 

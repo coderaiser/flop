@@ -4,4 +4,5 @@ node_modules
 npm-debug.log
 .nyc_output
 
-.putoutcache
+yarn-error.log
+coverage
