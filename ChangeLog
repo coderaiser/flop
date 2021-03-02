@@ -1,3 +1,13 @@
+2021.03.02, v10.0.0
+
+feature:
+- (flop) read: rm time
+- (package) eslint-plugin-putout v7.2.1
+- (package) supertape v5.0.0
+- (package) putout v15.4.3
+- (package) win32 v6.0.1
+
+
 2021.03.01, v9.1.3
 
 feature:
