@@ -1,16 +1,16 @@
-# Flop [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
-[NPMIMGURL]:                https://img.shields.io/npm/v/flop.svg?style=flat
+# Flop [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
+
+[NPMIMGURL]: https://img.shields.io/npm/v/flop.svg?style=flat
 [BuildStatusURL]: https://github.com/coderaiser/flop/actions?query=workflow%3A%22Node+CI%22 "Build Status"
 [BuildStatusIMGURL]: https://github.com/coderaiser/flop/workflows/Node%20CI/badge.svg
-[DependencyStatusIMGURL]:   https://img.shields.io/david/coderaiser/flop.svg?style=flat
-[LicenseIMGURL]:            https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
-[NPMURL]:                   https://npmjs.org/package/flop "npm"
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/flop "Dependency Status"
-[LicenseURL]:               https://tldrlegal.com/license/mit-license "MIT License"
+[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
+[NPMURL]: https://npmjs.org/package/flop "npm"
+[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
 
 FLOP - Folder operations module.
 
 ## Install
+
 For use as application you could use global install.
 
 ```
@@ -27,6 +27,7 @@ options:
 ```
 
 Also you can use flop as a module if install with
+
 ```
 npm i flop
 ```
@@ -34,6 +35,7 @@ npm i flop
 ## API
 
 ### create
+
 Create new directory.
 
 ```js
@@ -45,14 +47,17 @@ flop.create('./hello/world/from/flop', (error, data) => {
 ```
 
 ### read
+
 Read content of directory with permisions and sizes.
 
 Parameters:
+
 - path
 - type (optional)
 - options (optional)
 
 Posible type:
+
 - raw
 - size
 - size raw
@@ -93,4 +98,3 @@ await flop.remove('path/to/remove', ['folder1', 'folder2']);
 ## License
 
 MIT
-

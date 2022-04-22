@@ -70,6 +70,8 @@ test('flop: read: options', async (t) => {
         options,
     ];
     
+    stopAll();
+    
     t.deepEqual(read.args.pop(), expect, 'should call with args');
     t.end();
 });
