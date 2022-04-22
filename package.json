@@ -51,7 +51,7 @@
   "devDependencies": {
     "@cloudcmd/stub": "^4.0.1",
     "@iocmd/hold-up": "^2.1.0",
-    "@iocmd/wait": "^1.0.0",
+    "@iocmd/wait": "^2.1.0",
     "c8": "^7.6.0",
     "coveralls": "^3.0.0",
     "eslint": "^8.13.0",
