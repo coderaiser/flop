@@ -5,8 +5,10 @@ const path = require('path');
 const {mkdirSync} = require('fs');
 
 const wait = require('@iocmd/wait');
-const test = require('supertape');
-const stub = require('@cloudcmd/stub');
+const {
+    test,
+    stub
+} = require('supertape');
 const tryToCatch = require('try-to-catch');
 const mockRequire = require('mock-require');
 
