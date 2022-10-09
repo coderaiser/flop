@@ -1,3 +1,11 @@
+2022.10.09, v11.1.0
+
+feature:
+- package: eslint-plugin-n v15.3.0
+- package: supertape v8.1.0
+- package: putout v27.13.0
+- (package) copymitter v7.0.0
+
 2022.04.22, v11.0.0
 
 feature:
