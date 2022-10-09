@@ -2,6 +2,7 @@
   "name": "flop",
   "version": "11.0.0",
   "type": "commonjs",
+  "commitType": "colon",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "FLOP - simple FoLder OPerations",
   "homepage": "http://github.com/coderaiser/flop",
@@ -61,7 +62,7 @@
     "madrun": "^9.0.2",
     "mock-require": "^3.0.2",
     "nodemon": "^2.0.2",
-    "putout": "^25.15.0",
+    "putout": "^27.13.0",
     "supertape": "^7.2.3"
   },
   "publishConfig": {
