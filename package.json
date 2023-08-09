@@ -41,7 +41,7 @@
     "copymitter": "^7.0.0",
     "minimist": "^1.2.0",
     "readify": "^9.0.0",
-    "remy": "^6.0.0",
+    "remy": "^7.0.0",
     "trammel": "^5.0.0",
     "try-to-catch": "^3.0.0",
     "win32": "^7.0.0"
