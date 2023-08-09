@@ -66,7 +66,9 @@ Posible type:
 const flop = require('flop');
 
 await flop.read('.');
-await flop.read('.', {sort: 'size'});
+await flop.read('.', {
+    sort: 'size',
+});
 await flop.read('.', 'raw');
 await flop.read('.', 'size');
 await flop.read('.', 'size raw');

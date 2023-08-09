@@ -56,9 +56,9 @@ if (path)
 
 function help() {
     const message = 'flop - folder operations module.\n' +
-                    'options: \n' +
-                    '-h, --help - show this message\n' +
-                    '-r, --read - get directory content\n';
+        'options: \n' +
+        '-h, --help - show this message\n' +
+        '-r, --read - get directory content\n';
     
     console.log(message);
 }
@@ -68,4 +68,3 @@ function unknown() {
     
     console.log(message);
 }
-

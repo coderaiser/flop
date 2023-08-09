@@ -5,10 +5,8 @@ const path = require('path');
 const {mkdirSync} = require('fs');
 
 const wait = require('@iocmd/wait');
-const {
-    test,
-    stub
-} = require('supertape');
+const {test, stub} = require('supertape');
+
 const tryToCatch = require('try-to-catch');
 const mockRequire = require('mock-require');
 
@@ -67,10 +65,7 @@ test('flop: read: options', async (t) => {
     
     await flop.read(empty, options);
     
-    const expect = [
-        empty,
-        options,
-    ];
+    const expect = [empty, options];
     
     stopAll();
     
@@ -135,4 +130,3 @@ test('flop: remove: called', async (t) => {
     t.equal(error.code, 'ENOENT');
     t.end();
 });
-

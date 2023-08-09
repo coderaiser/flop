@@ -12,4 +12,3 @@ export default {
     'watch:test': () => run('watcher', 'npm test'),
     'watcher': () => 'nodemon -w test -w lib --exec',
 };
-
