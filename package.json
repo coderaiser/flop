@@ -39,7 +39,7 @@
     "checkup": "^1.3.0",
     "copymitter": "^8.1.0",
     "minimist": "^1.2.0",
-    "readify": "^9.0.0",
+    "readify": "^10.0.0",
     "remy": "^7.0.0",
     "trammel": "^5.0.0",
     "try-to-catch": "^3.0.0",
