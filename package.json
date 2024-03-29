@@ -47,7 +47,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "devDependencies": {
     "@iocmd/hold-up": "^2.1.0",
