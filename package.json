@@ -41,7 +41,7 @@
     "minimist": "^1.2.0",
     "readify": "^10.0.0",
     "remy": "^7.0.0",
-    "trammel": "^5.0.0",
+    "trammel": "^6.0.2",
     "try-to-catch": "^3.0.0",
     "win32": "^7.0.0"
   },
