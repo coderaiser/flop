@@ -2,6 +2,7 @@
 
 'use strict';
 
+const process = require('node:process');
 const minimist = require('minimist');
 const flop = require('..');
 const argv = minimist(process.argv.slice(2));
