@@ -1,8 +1,8 @@
 'use strict';
 
-const {EventEmitter} = require('events');
-const path = require('path');
-const {mkdirSync} = require('fs');
+const {EventEmitter} = require('node:events');
+const path = require('node:path');
+const {mkdirSync} = require('node:fs');
 
 const wait = require('@iocmd/wait');
 const {test, stub} = require('supertape');
