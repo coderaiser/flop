@@ -52,7 +52,7 @@
   "devDependencies": {
     "@iocmd/hold-up": "^2.1.0",
     "@iocmd/wait": "^2.1.0",
-    "c8": "^9.1.0",
+    "c8": "^10.1.2",
     "eslint": "^8.13.0",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-putout": "^22.5.0",
