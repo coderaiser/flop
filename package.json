@@ -1,6 +1,6 @@
 {
   "name": "flop",
-  "version": "12.0.0",
+  "version": "12.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "FLOP - simple FoLder OPerations",

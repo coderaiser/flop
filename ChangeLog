@@ -1,3 +1,11 @@
+2024.08.16, v12.0.1
+
+feature:
+- 5b72503 flop: putout v36.0.4
+- 1dc9780 flop: eslint v9.9.0
+- 1af83b7 flop: copymitter v9.0.0
+- a0185b8 flop: c8 v10.1.2
+
 2024.03.29, v12.0.0
 
 feature:
