@@ -7,7 +7,7 @@
   "homepage": "http://github.com/coderaiser/flop",
   "repository": {
     "type": "git",
-    "url": "git://github.com/coderaiser/flop.git"
+    "url": "git+https://github.com/coderaiser/flop.git"
   },
   "main": "lib/flop.js",
   "bin": {
