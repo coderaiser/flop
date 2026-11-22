@@ -1,7 +1,7 @@
 {
   "name": "flop",
   "version": "12.0.1",
-  "type": "commonjs",
+  "type": "module",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "FLOP - simple FoLder OPerations",
   "homepage": "http://github.com/coderaiser/flop",
@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "devDependencies": {
     "@iocmd/hold-up": "^2.1.0",
@@ -54,7 +54,6 @@
     "eslint": "^10.15.0",
     "eslint-plugin-putout": "^31.5.0",
     "madrun": "^13.0.4",
-    "mock-require": "^3.0.2",
     "nodemon": "^3.1.0",
     "putout": "^42.26.3",
     "superc8": "^12.7.0",

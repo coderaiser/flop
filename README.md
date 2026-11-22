@@ -26,7 +26,7 @@ options:
 -r, --read - get directory content
 ```
 
-Also you can use flop as a module if install with
+Also you can use flop as an [ESM](https://nodejs.org/api/esm.html) module if install with
 
 ```
 npm i flop
@@ -39,11 +39,9 @@ npm i flop
 Create new directory.
 
 ```js
-const flop = require('flop');
+import * as flop from 'flop';
 
-flop.create('./hello/world/from/flop', (error, data) => {
-    console.log(error, data);
-});
+await flop.create('./hello/world/from/flop');
 ```
 
 ### read
@@ -53,8 +51,7 @@ Read content of directory with permisions and sizes.
 Parameters:
 
 - path
-- type (optional)
-- options (optional)
+- type or options (optional)
 
 Posible type:
 
@@ -63,7 +60,7 @@ Posible type:
 - size raw
 
 ```js
-const flop = require('flop');
+import * as flop from 'flop';
 
 await flop.read('.');
 await flop.read('.', {
@@ -77,7 +74,7 @@ await flop.read('.', 'size raw');
 ### copy
 
 ```js
-const flop = require('flop');
+import * as flop from 'flop';
 
 await flop.copy('from', 'to');
 ```
@@ -85,7 +82,7 @@ await flop.copy('from', 'to');
 ### move
 
 ```js
-const flop = require('flop');
+import * as flop from 'flop';
 
 await flop.move('from', 'to');
 ```
@@ -93,6 +90,8 @@ await flop.move('from', 'to');
 ### remove
 
 ```js
+import * as flop from 'flop';
+
 await flop.remove('path/to/remove');
 await flop.remove('path/to/remove', ['folder1', 'folder2']);
 ```

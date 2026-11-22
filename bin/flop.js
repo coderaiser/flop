@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-'use strict';
+import process from 'node:process';
+import minimist from 'minimist';
+import * as flop from '../lib/flop.js';
 
-const process = require('node:process');
-const minimist = require('minimist');
-const flop = require('..');
 const argv = minimist(process.argv.slice(2));
 
 let path;

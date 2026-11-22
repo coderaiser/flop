@@ -1,75 +1,88 @@
-'use strict';
+import {EventEmitter} from 'node:events';
+import wait from '@iocmd/wait';
+import {test, stub} from 'supertape';
+import {tryToCatch} from 'try-to-catch';
+import * as flop from '../lib/flop.js';
 
-const {EventEmitter} = require('node:events');
-const path = require('node:path');
-const {mkdirSync} = require('node:fs');
+const createError = (code) => Object.assign(Error(code), {
+    code,
+});
 
-const wait = require('@iocmd/wait');
-const {test, stub} = require('supertape');
-
-const {tryToCatch} = require('try-to-catch');
-const mockRequire = require('mock-require');
-
-const flop = require('..');
-
-const {reRequire, stopAll} = mockRequire;
-
-const fixture = path.join(__dirname, 'fixture');
-const empty = path.join(fixture, 'empty');
-
-mkdirSync(empty, {
-    recursive: true,
+test('flop: create', async (t) => {
+    const mkdir = stub().resolves();
+    
+    await flop.create('/hello', {
+        mkdir,
+    });
+    
+    t.calledWith(mkdir, ['/hello', {
+        recursive: true,
+    }], 'should call mkdir');
+    t.end();
 });
 
 test('flop: read: size', async (t) => {
-    const size = await flop.read(empty, 'size');
+    const size = stub().resolves('0b');
+    const result = await flop.read('/hello', 'size', {
+        size,
+    });
     
-    t.equal(size, '0b', 'should size to be equal');
+    t.equal(result, '0b', 'should size to be equal');
     t.end();
 });
 
 test('flop: read: size raw', async (t) => {
-    const size = await flop.read(empty, 'size raw');
+    const size = stub().resolves(0);
     
-    t.equal(size, 0, 'should size to be equal');
+    await flop.read('/hello', 'size raw', {
+        size,
+    });
+    
+    t.calledWith(size, ['/hello', {
+        type: 'raw',
+    }], 'should call size with raw type');
     t.end();
 });
 
 test('flop: read: raw', async (t) => {
-    const result = await flop.read(empty, 'raw');
-    const expected = empty;
+    const readWin32 = stub().resolves();
     
-    t.equal(result.path, expected, 'should return result');
+    await flop.read('/hello', 'raw', {
+        readWin32,
+    });
+    
+    t.calledWith(readWin32, ['/hello', {
+        type: 'raw',
+    }], 'should call readWin32 with raw type');
     t.end();
 });
 
 test('flop: read', async (t) => {
-    const result = await flop.read(empty);
+    const readWin32 = stub().resolves({
+        path: '/hello',
+    });
     
-    t.equal(result.path, empty, 'should return result');
+    const result = await flop.read('/hello', undefined, {
+        readWin32,
+    });
+    
+    t.equal(result.path, '/hello', 'should return result');
     t.end();
 });
 
 test('flop: read: options', async (t) => {
-    const read = stub().resolves();
-    
-    mockRequire('win32', {
-        read,
-    });
-    const flop = reRequire('..');
+    const readWin32 = stub().resolves();
     
     const options = {
         order: 'asc',
         sort: 'name',
     };
     
-    await flop.read(empty, options);
+    await flop.read('/hello', options, {
+        readWin32,
+    });
     
-    const expect = [empty, options];
-    
-    stopAll();
-    
-    t.deepEqual(read.args.pop(), expect, 'should call with args');
+    t.calledWith(readWin32, ['/hello', options], 'should call with args');
     t.end();
 });
 
@@ -80,17 +93,14 @@ test('flop: remove: called: end', async (t) => {
     const path = '/';
     const files = [];
     
-    mockRequire('remy', remy);
-    const {remove} = reRequire('..');
-    
     const emit = emitter.emit.bind(emitter);
     
     await Promise.all([
-        remove(path, files),
-        wait(emit, 'end'),
+        flop.remove(path, files, {
+            remy,
+        }),
+        wait(0, emit, 'end'),
     ]);
-    
-    stopAll();
     
     t.calledWith(remy, [path, files], 'should call remy');
     t.end();
@@ -100,33 +110,105 @@ test('flop: remove: called: error', async (t) => {
     const emitter = new EventEmitter();
     const remy = stub().returns(emitter);
     
-    const path = '/';
-    const files = [];
-    
-    mockRequire('remy', remy);
-    const {remove} = reRequire('..');
-    
     const emit = emitter.emit.bind(emitter);
     const all = Promise.all.bind(Promise);
     
     const [e] = await tryToCatch(all, [
         wait(0, emit, 'error', Error('hello')),
-        remove(path, files),
+        flop.remove('/', [], {
+            remy,
+        }),
     ]);
-    
-    stopAll();
     
     t.equal(e.message, 'hello');
     t.end();
 });
 
-test('flop: remove: called', async (t) => {
-    const path = '/';
-    const files = ['not-found'];
+test('flop: copy', async (t) => {
+    const emitter = new EventEmitter();
+    const copymitter = stub().returns(emitter);
     
-    const {remove} = reRequire('..');
-    const [error] = await tryToCatch(remove, path, files);
+    const emit = emitter.emit.bind(emitter);
+    
+    await Promise.all([
+        flop.copy('/a/name', '/b/name', {
+            copymitter,
+        }),
+        wait(0, emit, 'end', {
+            errors: [],
+        }),
+    ]);
+    
+    t.calledWith(copymitter, ['/a/', '/b/', ['name']], 'should call copymitter');
+    t.end();
+});
+
+test('flop: copy: error', async (t) => {
+    const emitter = new EventEmitter();
+    const copymitter = stub().returns(emitter);
+    
+    const emit = emitter.emit.bind(emitter);
+    const all = Promise.all.bind(Promise);
+    
+    const [e] = await tryToCatch(all, [
+        flop.copy('/a/name', '/b/name', {
+            copymitter,
+        }),
+        wait(0, emit, 'error', Error('hello')),
+    ]);
+    
+    t.equal(e.message, 'hello');
+    t.end();
+});
+
+test('flop: move', async (t) => {
+    const rename = stub().resolves();
+    
+    await flop.move('/a', '/b', {
+        rename,
+    });
+    
+    t.calledWith(rename, ['/a', '/b'], 'should call rename');
+    t.end();
+});
+
+test('flop: move: error', async (t) => {
+    const rename = stub().rejects(createError('ENOENT'));
+    
+    const [error] = await tryToCatch(flop.move, '/a', '/b', {
+        rename,
+    });
     
     t.equal(error.code, 'ENOENT');
+    t.end();
+});
+
+test('flop: move: EXDEV', async (t) => {
+    const rename = stub().rejects(createError('EXDEV'));
+    const copy = stub().resolves();
+    const remove = stub().resolves();
+    
+    await flop.move('/a', '/b', {
+        rename,
+        copy,
+        remove,
+    });
+    
+    t.calledWith(remove, ['/a'], 'should remove source after copy');
+    t.end();
+});
+
+test('flop: move: ENOTEMPTY', async (t) => {
+    const rename = stub().rejects(createError('ENOTEMPTY'));
+    const copy = stub().resolves();
+    const remove = stub().resolves();
+    
+    await flop.move('/a', '/b', {
+        rename,
+        copy,
+        remove,
+    });
+    
+    t.calledWith(copy, ['/a', '/b'], 'should copy source');
     t.end();
 });
