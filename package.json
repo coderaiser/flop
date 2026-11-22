@@ -42,7 +42,7 @@
     "remy": "^7.0.0",
     "trammel": "^6.0.2",
     "try-to-catch": "^4.1.0",
-    "win32": "^7.0.0"
+    "win32": "^8.1.0"
   },
   "license": "MIT",
   "engines": {
