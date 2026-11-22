@@ -58,7 +58,7 @@
     "nodemon": "^3.1.0",
     "putout": "^42.26.3",
     "superc8": "^12.7.0",
-    "supertape": "^10.5.0"
+    "supertape": "^13.6.2"
   },
   "publishConfig": {
     "access": "public"
