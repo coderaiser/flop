@@ -1,3 +1,19 @@
+2026.11.22, v13.0.0
+
+feature:
+- 98234fe migrate: to ESM
+- 3a7b34f flop: win32 v8.1.0
+- 3c9e190 flop: try-to-catch v4.1.0
+- ac914bb flop: supertape v13.6.2
+- cd93a50 flop: putout v42.26.3
+- 245336e flop: madrun v13.0.4
+- a871c47 flop: eslint-plugin-putout v31.5.0
+- 54c41fb flop: eslint v10.15.0
+- 2ef798d flop: copymitter v10.3.2
+- 5f8fa9d flop: superc8 v12.7.0
+- c018fd2 flop: eslint-plugin-putout v24.1.0
+- 18297b3 flop: putout v38.1.2
+
 2024.08.16, v12.0.1
 
 feature:
