@@ -15,6 +15,7 @@ if (keys.length === 1)
         unknown();
     else
         help();
+
 else
     keys.some((name) => {
         let isDone = true;

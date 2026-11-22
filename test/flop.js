@@ -7,7 +7,7 @@ const {mkdirSync} = require('node:fs');
 const wait = require('@iocmd/wait');
 const {test, stub} = require('supertape');
 
-const tryToCatch = require('try-to-catch');
+const {tryToCatch} = require('try-to-catch');
 const mockRequire = require('mock-require');
 
 const flop = require('..');
