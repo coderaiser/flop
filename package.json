@@ -51,7 +51,7 @@
   "devDependencies": {
     "@iocmd/hold-up": "^2.1.0",
     "@iocmd/wait": "^2.1.0",
-    "eslint": "^9.9.0",
+    "eslint": "^10.15.0",
     "eslint-plugin-putout": "^24.1.0",
     "madrun": "^10.0.1",
     "mock-require": "^3.0.2",
